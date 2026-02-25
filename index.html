@@ -3,48 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NanoBot Science</title>
-    <!-- Include Tailwind CSS -->
+    <title>NanoBot Science English Tutor</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <!-- Include Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="styles.css"> <!-- Custom CSS -->
+    <style>
+        /* Add additional styles for the application if necessary */
+    </style>
 </head>
 <body class="bg-gray-100">
-
-    <div class="glass-panel">
-        <div class="sidebar">
-            <select id="topic-select">
-                <option value="topic1">Topic 1</option>
-                <option value="topic2">Topic 2</option>
-                <!-- More topics -->
-            </select>
-            <select id="skill-select">
-                <option value="skill1">Skill 1</option>
-                <option value="skill2">Skill 2</option>
-                <!-- More skills -->
-            </select>
+    <div class="container mx-auto p-5">
+        <!-- API Key Modal -->
+        <div id="api-key-modal" class="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center hidden">
+            <div class="bg-white p-5 rounded shadow-lg">
+                <h2 class="text-xl font-bold">Enter API Key</h2>
+                <input type="text" id="api-key" class="border p-2 w-full mt-2" placeholder="API Key">
+                <button onclick="submitApiKey()" class="bg-blue-500 text-white px-4 py-2 mt-2">Submit</button>
+                <button onclick="closeModal()" class="bg-red-500 text-white px-4 py-2 mt-2">Cancel</button>
+            </div>
         </div>
 
-        <main class="main-chat-area">
-            <div class="chat-messages"></div>
-            <div class="typing-indicator"></div>
-            <div class="input-panel">
-                <input type="text" id="user-input" placeholder="Type your message...">
-                <button id="send-button">Send</button>
-                <button id="tts-button">TTS</button>
+        <!-- Sidebar -->
+        <div class="flex">
+            <div class="w-1/4 bg-white shadow-lg p-5 rounded">
+                <h2 class="font-bold">Topics</h2>
+                <ul>
+                    <li onclick="selectTopic('Math')" class="cursor-pointer hover:bg-gray-200 p-2">Math</li>
+                    <li onclick="selectTopic('Science')" class="cursor-pointer hover:bg-gray-200 p-2">Science</li>
+                    <li onclick="selectTopic('History')" class="cursor-pointer hover:bg-gray-200 p-2">History</li>
+                </ul>
+                <h2 class="font-bold mt-5">Skills</h2>
+                <ul>
+                    <li onclick="selectSkill('Addition')" class="cursor-pointer hover:bg-gray-200 p-2">Addition</li>
+                    <li onclick="selectSkill('Subtraction')" class="cursor-pointer hover:bg-gray-200 p-2">Subtraction</li>
+                    <li onclick="selectSkill('Multiplication')" class="cursor-pointer hover:bg-gray-200 p-2">Multiplication</li>
+                </ul>
             </div>
-        </main>
 
-        <div class="quiz-container"></div>
-        <div class="audio-player"></div>
+            <!-- Chat Interface -->
+            <div class="flex-1 bg-white shadow-lg p-5 rounded ml-5">
+                <div class="mt-5">
+                    <h1 class="text-xl font-bold">Chat Interface</h1>
+                    <div id="chat-area" class="border h-64 overflow-y-auto p-2"></div>
+                    <input type="text" id="user-input" class="border p-2 w-full mt-2" placeholder="Type your message...">
+                    <button onclick="sendMessage()" class="bg-blue-500 text-white px-4 py-2 mt-2">Send</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Audio Player -->
+        <div class="flex mt-5">
+            <audio controls class="bg-white shadow-lg p-2 rounded">
+                <source src="your-audio-file.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <!-- Writing Area -->
+        <div class="flex mt-5">
+            <textarea placeholder="Write your text here..." class="border p-2 w-full h-32"></textarea>
+        </div>
+
+        <!-- Speaking Panel -->
+        <div class="flex mt-5">
+            <button onclick="startSpeaking()" class="bg-green-500 text-white px-4 py-2">Speak</button>
+            <button onclick="stopSpeaking()" class="bg-red-500 text-white px-4 py-2 ml-2">Stop</button>
+        </div>
+
+        <!-- Quiz Functionality -->
+        <div class="flex mt-5">
+            <h2 class="font-bold">Quiz</h2>
+            <button onclick="startQuiz()" class="bg-yellow-500 text-white px-4 py-2">Start Quiz</button>
+        </div>
     </div>
 
-    <div class="api-key-modal">
-        <input type="text" id="api-key" placeholder="Enter your API Key">
-        <button id="save-key">Save Key</button>
-    </div>
+    <script>
+        // JavaScript functions for the app functionality
+        function submitApiKey() {
+            // Code to submit the API Key
+        }
 
-    <script src="script.js"></script> <!-- JavaScript file for functionalities -->
+        function closeModal() {
+            document.getElementById('api-key-modal').classList.add('hidden');
+        }
+
+        function selectTopic(topic) {
+            // Code to select topic
+        }
+
+        function selectSkill(skill) {
+            // Code to select skill
+        }
+
+        function sendMessage() {
+            // Code to send message
+        }
+
+        function startSpeaking() {
+            // Code to start speaking
+        }
+
+        function stopSpeaking() {
+            // Code to stop speaking
+        }
+
+        function startQuiz() {
+            // Code to start quiz
+        }
+    </script>
 </body>
 </html>
